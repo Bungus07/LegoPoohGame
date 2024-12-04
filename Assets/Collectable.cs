@@ -10,13 +10,20 @@ public class Collectable : MonoBehaviour
     private int CoinsCollected;
     public AudioClip CollectedSoundEffect;
     public AudioSource CoinAudioSource;
+    public Coins CoinScript;
+
+    private void Start()
+    {
+        
+    }
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("CoinHasCollidedWith " + collision.gameObject.tag);
         if (collision.gameObject.tag == "Player")
         {
-            CoinsCollected++;
-            AmountOfCoinsText.text ="Coins "+ CoinsCollected.ToString();
+            CoinScript = collision.gameObject.GetComponent<Coins>();
+            CoinScript.CoinsCollected++;
+            CoinScript.AmountOfCoinsText.text ="Coins "+ CoinScript.CoinsCollected.ToString();
             CoinAudioSource.clip = CollectedSoundEffect;
             CoinAudioSource.Play();
             Destroy (gameObject);
