@@ -12,7 +12,13 @@ public class Coins : MonoBehaviour
     {
         
     }
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Coin")
+        {
+            other.gameObject.GetComponent<Collectable>().collectCoin();
+        }
+    }
     // Update is called once per frame
     void Update()
     {
