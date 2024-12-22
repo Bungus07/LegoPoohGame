@@ -11,6 +11,7 @@ namespace Unity.LEGO.UI
         public void LoadScene()
         {
             SceneManager.LoadScene(sceneName);
+            Debug.Log("HasAttemptedtoLoadScene " + sceneName);
         }
 
         public void LoadPreviousScene()

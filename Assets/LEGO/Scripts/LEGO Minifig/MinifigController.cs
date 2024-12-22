@@ -224,6 +224,7 @@ namespace Unity.LEGO.Minifig
                 }
             }
         }
+        
 
         protected virtual void Awake()
         {
